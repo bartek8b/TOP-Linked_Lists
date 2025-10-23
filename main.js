@@ -7,13 +7,13 @@ list.append('2');
 list.append('3');
 list.prepend('0');
 
-list.size();
-list.print();
+console.log(list.size());
+console.log(list.print());
 console.log(list.getHead());
 console.log(list.getTail());
-list.at(5);
-list.at(2);
-list.at(3.2);
-list.at(-1.5);
+console.log(list.at(5));
+console.log(list.at(2));
+console.log(list.at(3.2));
+console.log(list.at(-1.5));
 
 console.log(list);

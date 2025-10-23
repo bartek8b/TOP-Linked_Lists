@@ -35,11 +35,10 @@ export class List {
     let output = new Array();
     let curr = this.head;
     while (curr) {
-      // console.log(curr.value);
       output.push(curr.value);
       curr = curr.next;
     }
-    console.log(`List values: ${output}`);
+    // console.log(`List values: ${output}`);
     return output;
   }
 
@@ -53,7 +52,7 @@ export class List {
     if (size === 0) {
       return `The list is empty`;
     }
-    console.log(`List size: ${size}`);
+    // console.log(`List size: ${size}`);
     return size;
   }
 
@@ -61,16 +60,26 @@ export class List {
     if (!('head' in this)) {
       throw new Error('Head is missing');
     }
-    if (this.head) return `Head value: ${this.head.value}`;
-    else return 'The list is empty';
+    if (this.head) {
+      // console.log(`Head value: ${this.head.value}`);
+      return this.head.value;
+    } else {
+      // console.log('The list is empty');
+      return undefined;
+    }
   }
 
   getTail() {
     let temp = this.head;
+    if (!temp.next) {
+      // console.log('The list is empty');
+      return undefined;
+    }
     while (temp.next) {
       temp = temp.next;
     }
-    return `Tail value: ${temp.value}`;
+    // console.log(`Tail value: ${temp.value}`);
+    return temp.value;
   }
 
   at(index) {
@@ -79,10 +88,14 @@ export class List {
       console.log(`The index was set to the absolute value of the input`);
     index = Math.abs(Math.round(index));
     if (index > list.length) {
-      console.log(`Enter the value no higher than ${list.length}`);
+      // console.log(`Enter the value no higher than ${list.length}`);
       return undefined;
     }
-    console.log(`The value at #${index} is ${list[index]}`);
+    // console.log(`The value at #${index} is ${list[index]}`);
     return list[index];
+  }
+
+  pop() {
+    const list = this.print();
   }
 }
