@@ -20,6 +20,7 @@ export class List {
     let curr = this.head;
     while (curr.next) curr = curr.next;
     curr.next = newNode;
+    // console.log(this);
   }
 
   prepend(value) {
@@ -27,14 +28,18 @@ export class List {
     newNode.value = value;
     newNode.next = this.head;
     this.head = newNode;
+    // console.log(this);
   }
 
   print() {
+    let output = new Array();
     let curr = this.head;
     while (curr) {
-      console.log(curr.value);
+      // console.log(curr.value);
+      output.push(curr.value);
       curr = curr.next;
     }
+    return output;
   }
 
   size() {
@@ -45,9 +50,8 @@ export class List {
       curr = curr.next;
     }
     if (lenght === 0) {
-      console.log(`The list is empty`);
-      return
+      return `The list is empty`;
     }
-    console.log(`List length: ${lenght}`);
+    return `List length: ${lenght}`;
   }
 }
