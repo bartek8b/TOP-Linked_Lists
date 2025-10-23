@@ -39,27 +39,39 @@ export class List {
       output.push(curr.value);
       curr = curr.next;
     }
-    return output;
+    return `List values: ${output}`;
   }
 
   size() {
-    let lenght = 0;
+    let size = 0;
     let curr = this.head;
     while (curr) {
-      lenght++;
+      size++;
       curr = curr.next;
     }
-    if (lenght === 0) {
+    if (size === 0) {
       return `The list is empty`;
     }
-    return `List length: ${lenght}`;
+    return `List size: ${size}`;
   }
 
   getHead() {
     if (!('head' in this)) {
       throw new Error('Head is missing');
     }
-    if (this.head) return this.head.value;
+    if (this.head) return `Head value: ${this.head.value}`;
     else return 'The list is empty';
+  }
+
+  getTail() {
+    let temp = this.head;
+    while (temp.next) {
+      temp = temp.next;
+    }
+    return `Tail value: ${temp.value}`;
+  }
+
+  at(index) {
+    
   }
 }

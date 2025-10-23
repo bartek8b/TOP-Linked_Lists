@@ -10,6 +10,6 @@ list.prepend('0');
 console.log(list.size());
 console.log(list.print());
 console.log(list.getHead());
+console.log(list.getTail());
 
 console.log(list);
-
