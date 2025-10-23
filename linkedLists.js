@@ -75,9 +75,10 @@ export class List {
 
   at(index) {
     const list = this.print();
-    const maxIndex = list.length - 1;
-    index = Math.round(Math.abs(index));
-    if (index > maxIndex) {
+    if (index < 0)
+      console.log(`The index was set to the absolute value of the input`);
+    index = Math.abs(Math.round(index));
+    if (index > list.length) {
       console.log(`Enter the value no higher than ${list.length}`);
       return undefined;
     }

@@ -13,5 +13,7 @@ console.log(list.getHead());
 console.log(list.getTail());
 list.at(5);
 list.at(2);
+list.at(3.2);
+list.at(-1.5);
 
 console.log(list);
