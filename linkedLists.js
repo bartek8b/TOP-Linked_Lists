@@ -1,6 +1,6 @@
 class Node {
-  constructor() {
-    this.value = null;
+  constructor(value = null) {
+    this.value = value;
     this.next = null;
   }
 }
@@ -11,8 +11,7 @@ export class List {
   }
 
   append(value) {
-    const newNode = new Node();
-    newNode.value = value;
+    const newNode = new Node(value);
     if (!this.head) {
       this.head = newNode;
       return;
@@ -20,25 +19,23 @@ export class List {
     let curr = this.head;
     while (curr.next) curr = curr.next;
     curr.next = newNode;
-    // console.log(this);
   }
 
   prepend(value) {
-    const newNode = new Node();
-    newNode.value = value;
+    const newNode = new Node(value);
     newNode.next = this.head;
     this.head = newNode;
-    // console.log(this);
   }
 
   print() {
-    let output = new Array();
+    if (!this.head) return '';
+    let output = ``;
     let curr = this.head;
-    while (curr) {
-      output.push(curr.value);
+    while (curr.next) {
+      output += `(${curr.value}) -> `;
       curr = curr.next;
     }
-    // console.log(`List values: ${output}`);
+    output += `(${curr.value}) -> null`;
     return output;
   }
 
@@ -49,10 +46,6 @@ export class List {
       size++;
       curr = curr.next;
     }
-    if (size === 0) {
-      return `The list is empty`;
-    }
-    // console.log(`List size: ${size}`);
     return size;
   }
 
@@ -60,42 +53,43 @@ export class List {
     if (!('head' in this)) {
       throw new Error('Head is missing');
     }
-    if (this.head) {
-      // console.log(`Head value: ${this.head.value}`);
-      return this.head.value;
-    } else {
-      // console.log('The list is empty');
-      return undefined;
-    }
+    return this.head ? this.head.value : undefined;
   }
 
   getTail() {
-    let temp = this.head;
-    if (!temp.next) {
-      // console.log('The list is empty');
-      return undefined;
+    if (!this.head) return undefined;
+    let curr = this.head;
+    while (curr.next) {
+      curr = curr.next;
     }
-    while (temp.next) {
-      temp = temp.next;
-    }
-    // console.log(`Tail value: ${temp.value}`);
-    return temp.value;
+    return curr.value;
   }
 
   at(index) {
-    const list = this.print();
-    if (index < 0)
-      console.log(`The index was set to the absolute value of the input`);
     index = Math.abs(Math.round(index));
-    if (index > list.length) {
-      // console.log(`Enter the value no higher than ${list.length}`);
-      return undefined;
+    let curr = this.head;
+    let i = 0;
+    while (curr) {
+      if (i === index) return curr.value;
+      curr = curr.next;
+      i++;
     }
-    // console.log(`The value at #${index} is ${list[index]}`);
-    return list[index];
+    return undefined;
   }
 
   pop() {
-    const list = this.print();
+    if (!this.head) return undefined;
+    if (!this.head.next) {
+      const value = this.head.value;
+      this.head = null;
+      return value;
+    }
+    let curr = this.head;
+    while (curr.next && curr.next.next) {
+      curr = curr.next;
+    }
+    const value = curr.next.value;
+    curr.next = null;
+    return value;
   }
 }

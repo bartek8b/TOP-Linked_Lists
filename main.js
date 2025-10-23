@@ -11,9 +11,11 @@ console.log(list.size());
 console.log(list.print());
 console.log(list.getHead());
 console.log(list.getTail());
+// Undefinded as list.length === 4
 console.log(list.at(5));
 console.log(list.at(2));
 console.log(list.at(3.2));
 console.log(list.at(-1.5));
 
 console.log(list);
+console.log(list.pop());
