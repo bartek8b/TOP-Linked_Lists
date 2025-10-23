@@ -54,4 +54,12 @@ export class List {
     }
     return `List length: ${lenght}`;
   }
+
+  getHead() {
+    if (!('head' in this)) {
+      throw new Error('Head is missing');
+    }
+    if (this.head) return this.head.value;
+    else return 'The list is empty';
+  }
 }
