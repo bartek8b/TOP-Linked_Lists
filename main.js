@@ -7,9 +7,11 @@ list.append('2');
 list.append('3');
 list.prepend('0');
 
-console.log(list.size());
-console.log(list.print());
+list.size();
+list.print();
 console.log(list.getHead());
 console.log(list.getTail());
+list.at(5);
+list.at(2);
 
 console.log(list);

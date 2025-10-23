@@ -39,7 +39,8 @@ export class List {
       output.push(curr.value);
       curr = curr.next;
     }
-    return `List values: ${output}`;
+    console.log(`List values: ${output}`);
+    return output;
   }
 
   size() {
@@ -52,7 +53,8 @@ export class List {
     if (size === 0) {
       return `The list is empty`;
     }
-    return `List size: ${size}`;
+    console.log(`List size: ${size}`);
+    return size;
   }
 
   getHead() {
@@ -72,6 +74,14 @@ export class List {
   }
 
   at(index) {
-    
+    const list = this.print();
+    const maxIndex = list.length - 1;
+    index = Math.round(Math.abs(index));
+    if (index > maxIndex) {
+      console.log(`Enter the value no higher than ${list.length}`);
+      return undefined;
+    }
+    console.log(`The value at #${index} is ${list[index]}`);
+    return list[index];
   }
 }
