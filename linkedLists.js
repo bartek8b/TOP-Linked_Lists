@@ -92,4 +92,23 @@ export class List {
     curr.next = null;
     return value;
   }
+  contains(value) {
+    let curr = this.head;
+    while (curr) {
+      if (curr.value === value) return true;
+      curr = curr.next;
+    }
+    return false;
+  }
+
+  find(value) {
+    let curr = this.head;
+    let index = 0;
+    while (curr) {
+      if (curr.value === value) return index;
+      index++;
+      curr = curr.next;
+    }
+    return null;
+  }
 }

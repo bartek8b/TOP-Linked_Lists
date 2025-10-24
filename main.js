@@ -19,3 +19,9 @@ console.log(list.at(-1.5));
 
 console.log(list);
 console.log(list.pop());
+// list.length === 3
+console.log(list.print());
+console.log(list.contains('2'));
+console.log(list.contains('5'));
+console.log(list.find('8'));
+console.log(list.find('1'));
