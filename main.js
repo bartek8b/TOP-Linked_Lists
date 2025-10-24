@@ -25,3 +25,6 @@ console.log(list.contains('2'));
 console.log(list.contains('5'));
 console.log(list.find('8'));
 console.log(list.find('1'));
+console.log(list.removeAt(1));
+console.log(list.print());
+

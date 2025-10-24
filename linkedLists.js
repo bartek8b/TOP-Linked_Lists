@@ -92,6 +92,7 @@ export class List {
     curr.next = null;
     return value;
   }
+
   contains(value) {
     let curr = this.head;
     while (curr) {
@@ -110,5 +111,30 @@ export class List {
       curr = curr.next;
     }
     return null;
+  }
+
+  removeAt(index) {
+    if (!this.head) return null;
+    index = Math.abs(Math.round(index));
+
+    if (index === 0) {
+      const deletedVal = this.head.value;
+      this.head = null;
+      return deletedVal;
+    }
+
+    let curr = this.head;
+    let i = 0;
+
+    while (curr.next && i < index - 1) {
+      curr = curr.next;
+      i++;
+    }
+
+    if (!curr.next) return null;
+
+    const deletedVal = curr.next.value;
+    curr.next = curr.next.next;
+    return deletedVal;
   }
 }
