@@ -1,5 +1,3 @@
-### The Odin Project > Intermediate HTML and CSS Course > Project: Sign-up Form
+### JavaScript Course. Project: Linked Lists
 
-[Project requrements](https://www.theodinproject.com/lessons/node-path-intermediate-html-and-css-sign-up-form)
-
-
+[Project description](https://www.theodinproject.com/lessons/javascript-linked-lists)
