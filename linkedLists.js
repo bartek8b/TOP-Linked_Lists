@@ -119,7 +119,7 @@ export class List {
 
     if (index === 0) {
       const deletedVal = this.head.value;
-      this.head = null;
+      this.head = this.head.next;
       return deletedVal;
     }
 
