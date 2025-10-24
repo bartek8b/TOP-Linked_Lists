@@ -27,4 +27,6 @@ console.log(list.find('8'));
 console.log(list.find('1'));
 console.log(list.removeAt(1));
 console.log(list.print());
-
+console.log(list.insertAt('new', 3));
+console.log(list.insertAt('new', 0));
+console.log(list.print());

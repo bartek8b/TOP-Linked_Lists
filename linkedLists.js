@@ -137,4 +137,33 @@ export class List {
     curr.next = curr.next.next;
     return deletedVal;
   }
+
+  insertAt(value, index) {
+    const newNode = new Node(value);
+    index = Math.abs(Math.round(index));
+
+    if (!this.head && index === 0) {
+      this.head = newNode;
+      return newNode;
+    }
+
+    if (index === 0) {
+      newNode.next = this.head;
+      this.head = newNode;
+      return newNode;
+    }
+
+    let curr = this.head;
+    let i = 0;
+    while (curr) {
+      if (i === index - 1) {
+        newNode.next = curr.next;
+        curr.next = newNode;
+        return newNode;
+      }
+      curr = curr.next;
+      i++;
+    }
+    return null;
+  }
 }
